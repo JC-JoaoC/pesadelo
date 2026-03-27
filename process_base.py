@@ -36,7 +36,7 @@ def map_turno(horario_str):
                 return best_shift[0]
         except Exception as e:
             pass
-    return 'Charlie' # Default if parse fails or "FLEXIVEL"
+    return 'Charlie' # "FLEXIVEL"
 
 def process_name(full_name):
     parts = str(full_name).strip().split()
@@ -58,7 +58,7 @@ def main():
         print(f"Error reading CSV: {e}")
         return
 
-    # Strip column names to avoid whitespace issues
+    # Remova os nomes das colunas para evitar problemas com espaços em branco
     df.columns = df.columns.str.strip()
 
     required_cols = ['CHAPA', 'NOME COMPLETO', 'FUNÇÃO', 'HORÁRIO DE JORNADA', 'STATUS']
@@ -67,10 +67,10 @@ def main():
             print(f"Missing required col: {col}. Available: {df.columns}")
             return
 
-    # Filter STATUS = "A"
+    # filtro dos ativos
     df = df[df['STATUS'] == 'A']
 
-    # Filter by specific FUNÇÃO
+    # filtro da FUNÇÃO
     valid_funcs = ['ATENDENTE', 'AGENTE DE PROTECAO', 'AGENTE LIDER DE PROTECAO']
     df = df[df['FUNÇÃO'].str.upper().isin(valid_funcs)]
     

@@ -3,14 +3,23 @@ from auth import login, logout, is_authenticated
 
 def main():
     if not is_authenticated():
+        st.markdown(
+            """
+            <style>
+                [data-testid="stSidebar"] { display: none; }
+                [data-testid="collapsedControl"] { display: none; }
+                [data-testid="InputInstructions"] { display: none; }
+            </style>
+            """,
+            unsafe_allow_html=True,
+        )
         login()
         return
-    
-    # usuario 
+
     user_cpf = st.session_state["user_cpf"]
     user_turno = st.session_state["user_turno"]
 
-    st.sidebar.title(f"Bem-vindo, {user_cpf}")
+    st.sidebar.title(f"Bem-vindo, {user_turno}")
     if st.sidebar.button("Sair"):
         logout()
 

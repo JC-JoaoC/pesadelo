@@ -23,7 +23,7 @@ df_users = pd.DataFrame([{"ID": u.id, "CPF": u.cpf, "Turno": u.turno} for u in u
 if not df_users.empty:
     edited_df = st.data_editor(
         df_users,
-        use_container_width=True,
+        width="stretch",
         hide_index=True,
         column_config={
             "ID": st.column_config.NumberColumn(disabled=True),
@@ -48,12 +48,12 @@ if not df_users.empty:
             
 st.divider()
 
-# CREATE / UPDATE Form
+# CREATE / UPDATE formularip
 st.write("### Criar ou Atualizar Usuário")
-st.write("Se o CPF já existir, a senha do usuário e/ou o turno serão atualizados.")
+st.write("Se o nome do usuário já existir, a senha do usuário e/ou o turno serão atualizados.")
 
 with st.form("user_form"):
-    cpf = st.text_input("CPF")
+    cpf = st.text_input("Nome do Supervisor")
     turno = st.selectbox("Turno Associado", ["Admin", "Alfa", "Bravo", "Charlie", "Delta"])
     password = st.text_input("Senha", type="password")
     confirm_password = st.text_input("Confirmar Senha", type="password")

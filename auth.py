@@ -4,11 +4,11 @@ from utils import get_session
 from setup_db import User
 
 def login():
-    st.set_page_config(page_title="Login - Sistema de Escalas", page_icon="🔒", layout="centered")
+    st.set_page_config(page_title="Sistema de Escalas", layout="centered")
     st.title("Sistema de Gestão de Escalas")
     
     with st.form("login_form"):
-        cpf = st.text_input("CPF")
+        cpf = st.text_input("Usuário")
         password = st.text_input("Senha", type="password")
         submit = st.form_submit_button("Entrar")
         

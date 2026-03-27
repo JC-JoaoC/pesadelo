@@ -32,7 +32,7 @@ class Roster(Base):
     turno = Column(String(20), nullable=False)
     status = Column(String(50), default="Incomplete")
     criado_por_id = Column(Integer, ForeignKey('users.id'))
-    data = Column(JSON, nullable=False) # Stores the grid data
+    data = Column(JSON, nullable=False)
 
 def init_db():
     print("Initializing database...")

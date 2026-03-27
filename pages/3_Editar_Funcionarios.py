@@ -46,7 +46,7 @@ st.caption("As edições feitas na tabela abaixo serão atualizadas no banco de 
 edited_df = st.data_editor(
     df_empos,
     key="empos_editor",
-    use_container_width=True,
+    width="stretch",
     num_rows="dynamic",
     column_config={
         "Matrícula": st.column_config.NumberColumn("Matrícula", disabled=True),
