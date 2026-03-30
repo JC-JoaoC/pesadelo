@@ -1,5 +1,10 @@
 import streamlit as st
 from auth import login, logout, is_authenticated
+import os
+
+if not os.path.exists("escala.db"):
+    os.system("python setup_db.py")
+    os.system("python process_base.py")
 
 def main():
     if not is_authenticated():
